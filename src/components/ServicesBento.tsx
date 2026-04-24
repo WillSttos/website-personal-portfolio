@@ -88,8 +88,7 @@ function BentoCard({ title, description, icon, className, index }: {
         >
             <div className="relative w-full h-full rounded-[15px] overflow-hidden flex flex-col justify-between p-8 z-10"
                 style={{
-                    background: "rgba(10, 10, 10, 0.55)",
-
+                    background: "linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0%, rgba(20, 20, 20, 0.6) 40%, rgba(10, 10, 10, 0.4) 100%)",
                     borderTop: "1px solid rgba(255,255,255,0.08)",
                 }}>
 

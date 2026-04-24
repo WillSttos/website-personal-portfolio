@@ -64,10 +64,22 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1.5 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-10"
             >
-                <span className="text-[10px] uppercase tracking-widest text-gray-500">{t.hero.scroll}</span>
-                <div className="w-[1px] h-12 bg-gradient-to-b from-gray-500 to-transparent" />
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-400">
+                    {t.hero.scroll}
+                </span>
+                <div className="relative w-[2px] h-16 bg-white/10 overflow-hidden rounded-full">
+                    <motion.div
+                        className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent via-white to-transparent"
+                        animate={{ y: ["-100%", "200%"] }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+                    />
+                </div>
             </motion.div>
         </section>
     );

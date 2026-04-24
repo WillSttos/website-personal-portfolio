@@ -1,27 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-    Figma,
-    MonitorPlay,
-    Triangle,
-    Hexagon,
-    Layers,
-    Cpu,
-    MonitorSmartphone,
-    Globe
-} from "lucide-react";
+import { Figma, Github, Code2, Atom } from "lucide-react";
+import { SiBlender } from "react-icons/si";
 import { useI18n } from "@/i18n/I18nContext";
 
+const AdobeIcon = ({ letters, className, strokeWidth = 1.5 }: { letters: string, className?: string, strokeWidth?: number }) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <rect x="3" y="3" width="18" height="18" rx="4" ry="4" />
+        <text x="12" y="16" textAnchor="middle" fontSize="10" fontWeight="700" fontFamily="sans-serif" fill="currentColor" stroke="none" style={{ letterSpacing: "-0.5px" }}>{letters}</text>
+    </svg>
+);
+
 const ICONS = [
-    { icon: <Figma className="w-6 h-6" />, delay: 0 },
-    { icon: <MonitorPlay className="w-6 h-6" />, delay: 0.2 },
-    { icon: <Triangle className="w-6 h-6" />, delay: 0.4 },
-    { icon: <Hexagon className="w-6 h-6" />, delay: 0.1 },
-    { icon: <Layers className="w-6 h-6" />, delay: 0.3 },
-    { icon: <Cpu className="w-6 h-6" />, delay: 0.5 },
-    { icon: <MonitorSmartphone className="w-6 h-6" />, delay: 0.2 },
-    { icon: <Globe className="w-6 h-6" />, delay: 0.4 },
+    { icon: <Figma className="w-6 h-6" strokeWidth={1.5} />, delay: 0 },
+    { icon: <AdobeIcon letters="Ae" className="w-6 h-6" strokeWidth={1.5} />, delay: 0.2 },
+    { icon: <AdobeIcon letters="Ps" className="w-6 h-6" strokeWidth={1.5} />, delay: 0.4 },
+    { icon: <AdobeIcon letters="Ai" className="w-6 h-6" strokeWidth={1.5} />, delay: 0.1 },
+    { icon: <SiBlender className="w-5 h-5" />, delay: 0.3 }, // Represents Blender directly
+    { icon: <Code2 className="w-6 h-6" strokeWidth={1.5} />, delay: 0.5 }, // Represents Code / VS Code
+    { icon: <Github className="w-6 h-6" strokeWidth={1.5} />, delay: 0.2 },
+    { icon: <Atom className="w-6 h-6" strokeWidth={1.5} />, delay: 0.4 }, // Represents React
 ];
 
 export default function SkillsGrid() {
