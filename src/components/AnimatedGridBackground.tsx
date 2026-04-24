@@ -37,32 +37,6 @@ export default function AnimatedGridBackground() {
             {/* Radial overlay to make edges blend to black */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_100%)] opacity-100" />
 
-            {/* Background ambient glowing orbs */}
-            <motion.div
-                className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-white/[0.03] blur-[150px]"
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-            />
-            <motion.div
-                className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-white/[0.02] blur-[180px]"
-                animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.2, 0.4, 0.2],
-                }}
-                transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 2
-                }}
-            />
         </div>
     );
 }

@@ -11,6 +11,7 @@ import {
     MonitorSmartphone,
     Globe
 } from "lucide-react";
+import { useI18n } from "@/i18n/I18nContext";
 
 const ICONS = [
     { icon: <Figma className="w-6 h-6" />, delay: 0 },
@@ -24,9 +25,11 @@ const ICONS = [
 ];
 
 export default function SkillsGrid() {
+    const { t } = useI18n();
+
     return (
         <section className="relative px-4 py-24 md:py-32 max-w-7xl mx-auto overflow-hidden" id="process">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
+
 
             <div className="mb-20 text-center relative z-10">
                 <motion.span
@@ -36,7 +39,7 @@ export default function SkillsGrid() {
                     transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
                     className="text-sm font-semibold tracking-widest uppercase text-gray-500 mb-4 block"
                 >
-                    Toolkit
+                    {t.skills.label}
                 </motion.span>
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
@@ -45,7 +48,7 @@ export default function SkillsGrid() {
                     transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 1, 0.5, 1] }}
                     className="text-3xl md:text-5xl font-bold tracking-tight mb-4"
                 >
-                    Shop everywhere, anywhere
+                    {t.skills.title}
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -54,24 +57,13 @@ export default function SkillsGrid() {
                     transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
                     className="text-gray-400 max-w-lg mx-auto"
                 >
-                    Equipped with industry-standard software to deliver cutting-edge results.
+                    {t.skills.subtitle}
                 </motion.p>
             </div>
 
-            <div className="relative w-full max-w-3xl mx-auto aspect-square md:aspect-[2/1] flex items-center justify-center pointer-events-none">
-                {/* Simulating a rhombus grid pattern with absolute positioning for optimal control */}
+            <div className="relative w-full max-w-3xl mx-auto aspect-square md:aspect-[2/1] flex items-center justify-center">
                 <div className="relative w-64 h-64 md:w-96 md:h-96 rotate-45 flex items-center justify-center">
-
-                    {/* Coordinates mapped to a 3x3 rhombus grid shell */}
-                    {/** 
-           *    [0]
-           *  [1][2]
-           * [3][4][5]
-           *  [6][7]
-           * */}
-
                     {ICONS.map((item, i) => {
-                        // Calculate a grid position
                         const row = Math.floor(i / 3);
                         const col = i % 3;
 
@@ -96,9 +88,10 @@ export default function SkillsGrid() {
                                         ease: "easeInOut",
                                         delay: item.delay,
                                     }}
-                                    className="w-16 h-16 md:w-20 md:h-20 bg-[#111] border border-white/10 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.05)_inset] -rotate-45 relative z-20 backdrop-blur-xl"
+                                    whileHover={{ scale: 1.1 }}
+                                    className="group w-16 h-16 md:w-20 md:h-20 bg-[#111] border border-white/10 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.05)_inset] hover:shadow-[0_0_40px_rgba(255,255,255,0.15)_inset,0_0_40px_rgba(255,255,255,0.2)] hover:border-white/40 hover:bg-white/10 transition-all duration-300 -rotate-45 relative z-20 cursor-pointer pointer-events-auto"
                                 >
-                                    <div className="text-gray-300">
+                                    <div className="text-gray-300 group-hover:text-white group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] transition-all duration-300">
                                         {item.icon}
                                     </div>
                                 </motion.div>
@@ -108,7 +101,6 @@ export default function SkillsGrid() {
                 </div>
             </div>
 
-            {/* Background Perspective Grid Underneath the Skills */}
             <div className="absolute bottom-0 left-0 right-0 h-1/2 pointer-events-none" style={{
                 backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to top, rgba(255,255,255,0.1) 1px, transparent 1px)',
                 backgroundSize: '40px 40px',

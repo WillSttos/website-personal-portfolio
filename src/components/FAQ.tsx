@@ -3,40 +3,29 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
-
-const FAQ_DATA = [
-    {
-        question: "What is your typical design process?",
-        answer: "I start by understanding your brand's core values and target audience. From there, I move to wireframing, high-fidelity UI design in Figma, and finally, motion-rich frontend development using React and Tailwind.",
-    },
-    {
-        question: "Do you develop the websites you design?",
-        answer: "Yes, I specialize in design engineering. I don't just create static prototypes; I bring them to life using Next.js, Framer Motion, and GSAP ensuring perfect 1:1 implementation.",
-    },
-    {
-        question: "What timeline should I expect for a full website?",
-        answer: "A standard premium landing page takes about 2-3 weeks from concept to deployment. Multi-page portfolios or eCommerce experiences can take 4-8 weeks depending on the complexity of 3D elements and animations.",
-    },
-    {
-        question: "Can we integrate a CMS later?",
-        answer: "Absolutely. I build modular frontends (like this one on Next.js) which can easily be connected to headless CMS platforms like Sanity, Strapi, or Contentful whenever you're ready to scale.",
-    }
-];
+import { useI18n } from "@/i18n/I18nContext";
 
 export default function FAQ() {
+    const { t } = useI18n();
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
         <section className="px-4 py-24 md:py-32 max-w-3xl mx-auto w-full" id="faq">
             <div className="mb-16 text-center">
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight glow-text block">
-                    FAQ
+                    {t.faq.title}
                 </h2>
             </div>
 
-            <div className="space-y-2">
-                {FAQ_DATA.map((faq, i) => (
-                    <div key={i} className="border-b border-white/10 overflow-hidden">
+            <div className="space-y-2 rounded-2xl overflow-hidden p-1"
+            style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.07)",
+
+            }}
+        >
+                {t.faq.items.map((faq, i) => (
+                    <div key={i} className="border-b border-white/[0.06] overflow-hidden px-4">
                         <button
                             onClick={() => setOpenIndex(openIndex === i ? null : i)}
                             className="w-full flex items-center justify-between py-6 text-left hover:text-white group transition-colors"

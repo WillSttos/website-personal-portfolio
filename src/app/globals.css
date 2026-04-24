@@ -31,9 +31,13 @@ body {
 }
 
 .bento-card {
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(8, 8, 8, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .dark {
@@ -57,4 +61,5 @@ body {
 /* Reset border color globally */
 * {
   border-color: rgba(255, 255, 255, 0.1);
+  cursor: none !important;
 }
